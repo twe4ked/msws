@@ -13,6 +13,10 @@ let mut r = Rand::new(seed).expect("invalid seed");
 r.rand(); // => u32
 ```
 
+## Crypto
+
+Pseudorandom number generators should not be used for crypto.
+
 ### License
 
 MIT
