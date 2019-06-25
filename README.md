@@ -1,4 +1,4 @@
-# msws
+# Middle Square Weyl Sequence
 
 [Middle Square Weyl Sequence][1] pseudorandom number generator (`no_std`).
 
@@ -13,4 +13,6 @@ let mut r = Rand::new(seed).expect("invalid seed");
 r.rand(); // => u32
 ```
 
-License: MIT
+### License
+
+MIT
