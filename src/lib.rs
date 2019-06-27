@@ -20,19 +20,19 @@
 
 use core::result::Result;
 
-/// x: Random output
-/// w: Weyl sequence
-/// s: Seed, must be odd
+/// This struct holds the state necessary to generate random numbers.
+/// You should continue to call `rand()` on the same instance of the struct.
 pub struct Rand {
+    // Seed, must be odd
     s: u64,
+    // Random output
     x: u64,
+    // Weyl sequence
     w: u64,
 }
 
 impl Rand {
     /// Generates a new Rand struct from an *odd* seed.
-    ///
-    /// Panics: If the supplied seed is not odd.
     pub fn new(s: u64) -> Result<Self, &'static str> {
         if s & 1 == 0 {
             return Err("seed must be odd");
