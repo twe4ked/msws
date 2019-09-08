@@ -8,6 +8,10 @@
 
 ```rust
 use msws::Rand;
+
+// This will always return the same seed.
+msws::seed(0); // => 0xb5ad4eceda1ce2a9
+
 let seed = 0xb5ad4eceda1ce2a9;
 let mut r = Rand::new(seed).expect("invalid seed");
 r.rand(); // => 0xb5ad4ece
