@@ -52,7 +52,30 @@ impl Rand {
         // Apply to x
         self.x = self.x.wrapping_add(self.w);
 
-        // Return the middle 32-bits
-        ((self.x >> 32) | (self.x << 32)) as u32
+        // Store the middle 32-bits
+        self.x = (self.x >> 32) | (self.x << 32);
+
+        self.x as u32
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_rand() {
+        let mut r = Rand::new(0xb5ad4eceda1ce2a9).unwrap();
+
+        assert_eq!(r.rand(), 0xb5ad4ece);
+        assert_eq!(r.rand(), 0xdf4ee85c);
+        assert_eq!(r.rand(), 0x1889155f);
+        assert_eq!(r.rand(), 0xc6dcbccf);
+        assert_eq!(r.rand(), 0x1106e0c5);
+        assert_eq!(r.rand(), 0x473066ae);
+        assert_eq!(r.rand(), 0x374ac427);
+        assert_eq!(r.rand(), 0x21e9e9bf);
+        assert_eq!(r.rand(), 0x7294da52);
+        assert_eq!(r.rand(), 0x212dbe1a);
     }
 }
