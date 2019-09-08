@@ -8,7 +8,7 @@
 //! use msws::Rand;
 //! let seed = 0xb5ad4eceda1ce2a9;
 //! let mut r = Rand::new(seed).expect("invalid seed");
-//! r.rand(); // => u32
+//! r.rand(); // => 0xb5ad4ece
 //! ```
 //!
 //! # Crypto
